@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health, Safety & Good Housekeeping | Unit 051</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* CSS Variables for Themes */
+        :root {
+            --bg-gradient-start: #f0f4f8;
+            --bg-gradient-end: #d9e2ec;
+            --card-bg: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --primary-color: #3182ce;
+            --primary-light: #4299e1;
+            --primary-dark: #2c5282;
+            --accent-color: #38a169;
+            --warning-bg: #fef5e7;
+            --warning-border: #f39c12;
+            --warning-text: #7d6608;
+            --tip-bg: #e6fffa;
+            --tip-border: #38b2ac;
+            --tip-text: #234e52;
+            --key-bg: #ebf8ff;
+            --key-border: #3182ce;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --danger-color: #e53e3e;
+            --danger-bg: #fff5f5;
+        }
+
+        body.theme-dark {
+            --bg-gradient-start: #1a202c;
+            --bg-gradient-end: #2d3748;
+            --card-bg: #2d3748;
+            --text-primary: #e2e8f0;
+            --text-secondary: #cbd5e0;
+            --primary-color: #4299e1;
+            --primary-light: #63b3ed;
+            --primary-dark: #3182ce;
+            --accent-color: #48bb78;
+            --warning-bg: #744210;
+            --warning-border: #f6ad55;
+            --warning-text: #fefcbf;
+            --tip-bg: #234e52;
+            --tip-border: #4fd1c5;
+            --tip-text: #e6fffa;
+            --key-bg: #2c5282;
+            --key-border: #4299e1;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-hover: rgba(0, 0, 0, 0.5);
+            --danger-color: #fc8181;
+            --danger-bg: #742a2a;
+        }
+
+        body.theme-contrast {
+            --bg-gradient-start: #ffffff;
+            --bg-gradient-end: #ffffff;
+            --card-bg: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #000000;
+            --primary-color: #0000ff;
+            --primary-light: #0000cc;
+            --primary-dark: #000099;
+            --accent-color: #008000;
+            --warning-bg: #ffff00;
+            --warning-border: #000000;
+            --warning-text: #000000;
+            --tip-bg: #00ff00;
+            --tip-border: #000000;
+            --tip-text: #000000;
+            --key-bg: #e0e0ff;
+            --key-border: #000000;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-hover: rgba(0, 0, 0, 0.5);
+            --danger-color: #ff0000;
+            --danger-bg: #ffcccc;
+        }
+
+        body.theme-dyslexia {
+            --bg-gradient-start: #faf8f1;
+            --bg-gradient-end: #f5f3e8;
+            --card-bg: #fffef7;
+            --text-primary: #3e3e3e;
+            --text-secondary: #5a5a5a;
+            --primary-color: #0066cc;
+            --primary-light: #3385d6;
+            --primary-dark: #004c99;
+            --accent-color: #2d9f4f;
+            --warning-bg: #fff9e6;
+            --warning-border: #e6a700;
+            --warning-text: #664d00;
+            --tip-bg: #e8f5e9;
+            --tip-border: #2d9f4f;
+            --tip-text: #1b5e20;
+            --key-bg: #e3f2fd;
+            --key-border: #0066cc;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.12);
+            --danger-color: #d32f2f;
+            --danger-bg: #ffebee;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body.theme-blue {
+            --bg-gradient-start: #e0f2fe;
+            --bg-gradient-end: #bae6fd;
+            --card-bg: #ffffff;
+            --text-primary: #0c4a6e;
+            --text-secondary: #075985;
+            --primary-color: #0284c7;
+            --primary-light: #0ea5e9;
+            --primary-dark: #0369a1;
+            --accent-color: #0891b2;
+            --warning-bg: #fef3c7;
+            --warning-border: #f59e0b;
+            --warning-text: #78350f;
+            --tip-bg: #ccfbf1;
+            --tip-border: #14b8a6;
+            --tip-text: #134e4a;
+            --key-bg: #dbeafe;
+            --key-border: #0284c7;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --danger-color: #dc2626;
+            --danger-bg: #fee2e2;
+        }
+
+        body.theme-green {
+            --bg-gradient-start: #ecfdf5;
+            --bg-gradient-end: #d1fae5;
+            --card-bg: #ffffff;
+            --text-primary: #064e3b;
+            --text-secondary: #065f46;
+            --primary-color: #059669;
+            --primary-light: #10b981;
+            --primary-dark: #047857;
+            --accent-color: #0d9488;
+            --warning-bg: #fef3c7;
+            --warning-border: #f59e0b;
+            --warning-text: #78350f;
+            --tip-bg: #ccfbf1;
+            --tip-border: #14b8a6;
+            --tip-text: #134e4a;
+            --key-bg: #d1fae5;
+            --key-border: #059669;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --danger-color: #dc2626;
+            --danger-bg: #fee2e2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .qr-code {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 5px;
+            background: white;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .qr-text {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        header {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px 160px 30px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .assessment-code {
+            background: var(--key-bg);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-top: 10px;
+        }
+
+        .theme-selector {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .theme-selector h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .theme-selector p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .theme-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .theme-btn {
+            padding: 12px 20px;
+            border: 2px solid var(--primary-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .theme-btn.active {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .theme-btn-icon {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .print-info {
+            background: var(--tip-bg);
+            border: 2px solid var(--tip-border);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .print-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .print-info p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin: 5px 0;
+        }
+
+        .print-info strong {
+            color: var(--primary-dark);
+        }
+
+        nav {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        nav h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow-hover);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--primary-dark);
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .key-point {
+            background: var(--key-bg);
+            border-left: 4px solid var(--key-border);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: var(--warning-text);
+        }
+
+        .danger-box {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: var(--danger-color);
+        }
+
+        .tip-box {
+            background: var(--tip-bg);
+            border-left: 4px solid var(--tip-border);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: var(--tip-text);
+        }
+
+        /* Diagram Styles */
+        .diagram-container {
+            background: var(--card-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .diagram-title {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Tool Cards */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: var(--key-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .tool-checks {
+            text-align: left;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Fire Extinguisher Display */
+        .fire-ext-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .fire-ext-box {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .fire-ext-box.water {
+            border-color: #e53e3e;
+            background: #fee;
+        }
+
+        .fire-ext-box.foam {
+            border-color: #f6ad55;
+            background: #fffaf0;
+        }
+
+        .fire-ext-box.powder {
+            border-color: #4299e1;
+            background: #ebf8ff;
+        }
+
+        .fire-ext-box.co2 {
+            border-color: #2d3748;
+            background: #f7fafc;
+        }
+
+        .fire-ext-box.wet-chem {
+            border-color: #ffc107;
+            background: #fffbeb;
+        }
+
+        .ext-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        /* Hazard Symbols */
+        .hazard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .hazard-symbol {
+            border: 3px solid #e53e3e;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .hazard-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hazard-name {
+            font-weight: 700;
+            color: #e53e3e;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .hazard-desc {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        /* PPE Display */
+        .ppe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ppe-item {
+            background: var(--accent-color);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .ppe-item:hover {
+            transform: scale(1.05);
+        }
+
+        .ppe-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .ppe-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Waste Bins */
+        .waste-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .waste-bin {
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+        }
+
+        .waste-bin.metal {
+            background: linear-gradient(135deg, #718096, #4a5568);
+        }
+
+        .waste-bin.cardboard {
+            background: linear-gradient(135deg, #d69e2e, #b7791f);
+        }
+
+        .waste-bin.oil {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+        }
+
+        .waste-bin.plastic {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+        }
+
+        .waste-bin.general {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .bin-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--key-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .checklist-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: var(--card-bg);
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item:before {
+            content: "✓";
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--text-secondary);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: var(--key-bg);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px var(--shadow);
+        }
+
+        .table-container::after {
+            content: "← Swipe to see more →";
+            display: none;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            padding: 5px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .table-container::after {
+                display: block;
+            }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow-hover);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow-hover);
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+                top: 10px;
+                right: 10px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                padding-right: 90px;
+            }
+
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fire-ext-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hazard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ppe-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .waste-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10pt;
+                line-height: 1.3;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            header {
+                padding: 10px 120px 10px 10px;
+                box-shadow: none;
+                border: 2px solid #000;
+                page-break-after: avoid;
+                margin-bottom: 10px;
+            }
+
+            .theme-selector,
+            .back-to-top,
+            .print-btn,
+            .print-info,
+            nav {
+                display: none !important;
+            }
+
+            .section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+                margin-bottom: 8px;
+                padding: 12px;
+            }
+
+            .diagram-container,
+            .tool-card,
+            .fire-ext-box,
+            .hazard-symbol,
+            .ppe-item,
+            .waste-bin {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                margin: 1.5cm 1cm;
+                
+                @bottom-center {
+                    content: "Unit 051 | Health, Safety & Housekeeping | Page " counter(page);
+                    font-size: 8pt;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="qr-code">
+                <img src="qr.png" alt="QR Code">
+                <span class="qr-text">Scan for online</span>
+            </div>
+            <h1>⚠️ Health, Safety & Good Housekeeping</h1>
+            <p class="subtitle">Knowledge of Health, Safety and Good Housekeeping in the Automotive Environment</p>
+            <span class="assessment-code">Unit 051 | Level 1</span>
+        </header>
+
+        <!-- Theme Selector -->
+        <div class="theme-selector">
+            <h3>🎨 Choose Your Display Theme</h3>
+            <p>Select a theme that's comfortable for you to read. Your choice will be saved automatically.</p>
+            <div class="theme-buttons">
+                <button class="theme-btn active" data-theme="light">
+                    <span class="theme-btn-icon">☀️</span> Light
+                </button>
+                <button class="theme-btn" data-theme="dark">
+                    <span class="theme-btn-icon">🌙</span> Dark
+                </button>
+                <button class="theme-btn" data-theme="contrast">
+                    <span class="theme-btn-icon">⚫</span> High Contrast
+                </button>
+                <button class="theme-btn" data-theme="dyslexia">
+                    <span class="theme-btn-icon">📖</span> Dyslexia Friendly
+                </button>
+                <button class="theme-btn" data-theme="blue">
+                    <span class="theme-btn-icon">💙</span> Blue Calm
+                </button>
+                <button class="theme-btn" data-theme="green">
+                    <span class="theme-btn-icon">💚</span> Green Nature
+                </button>
+            </div>
+        </div>
+
+        <div class="print-info">
+            <h4>🖨️ Need a Printed Handout?</h4>
+            <p>Click the print button (bottom right) or press <strong>Ctrl+P</strong> for a condensed handout.</p>
+        </div>
+
+        <nav>
+            <h2>📚 Quick Navigation</h2>
+            <div class="nav-grid">
+                <a href="#housekeeping" class="nav-button">Housekeeping Section</a>
+                <a href="#tools" class="nav-button">Tools & Equipment</a>
+                <a href="#daily" class="nav-button">Daily Routines</a>
+                <a href="#waste" class="nav-button">Waste & Recycling</a>
+                <a href="#health-safety" class="nav-button">Health & Safety</a>
+                <a href="#hazards" class="nav-button">Hazards & Risks</a>
+                <a href="#fire" class="nav-button">Fire Safety</a>
+                <a href="#ppe" class="nav-button">PPE & Warning Labels</a>
+            </div>
+        </nav>
+
+        <!-- HOUSEKEEPING SECTION -->
+        <section id="housekeeping" class="section">
+            <h2>🧹 Housekeeping Section</h2>
+            
+            <div class="key-point">
+                <strong>🎯 What is Good Housekeeping?</strong>
+                <p style="margin-top: 10px;">Good housekeeping means keeping the workshop clean, tidy, organised, and safe. It prevents accidents, improves efficiency, creates a professional image, and makes the workplace more pleasant for everyone.</p>
+            </div>
+
+            <h3>Why Good Housekeeping Matters</h3>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span><strong>Safety:</strong> Reduces slips, trips, and falls - the most common workshop accidents</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Efficiency:</strong> Easy to find tools and equipment, saves time searching</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Professional Image:</strong> Customers trust a clean, organised workshop</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Equipment Life:</strong> Properly maintained tools last longer and work better</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Fire Prevention:</strong> Removing combustible waste reduces fire risk</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Health:</strong> Clean environment reduces dust, fumes, and skin problems</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Morale:</strong> People work better in a clean, pleasant environment</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic 1: Tools and Equipment -->
+        <section id="tools" class="section">
+            <h2>🔧 Topic 1: Tools and Equipment Maintenance</h2>
+            
+            <div class="key-point">
+                <strong>🎯 Key Understanding:</strong> Regular checking and cleaning of tools and equipment ensures they work safely and efficiently. Poorly maintained tools can cause accidents, damage vehicles, and waste time.
+            </div>
+
+            <h3>Six Essential Tools and Equipment</h3>
+
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🔧</div>
+                    <div class="tool-name">1. Spanners & Sockets</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>No cracks or damage</li>
+                            <li>Jaws not worn or spread</li>
+                            <li>Chrome not chipped</li>
+                            <li>Socket drive not worn</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Wipe with clean rag after use</li>
+                            <li>Remove oil and grease</li>
+                            <li>Light oil to prevent rust</li>
+                            <li>Store in tool chest organised</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🏗️</div>
+                    <div class="tool-name">2. Vehicle Ramp/Lift</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Hydraulics for leaks</li>
+                            <li>Safety locks function</li>
+                            <li>No damaged arms/pads</li>
+                            <li>Control buttons work</li>
+                            <li>Emergency stop functions</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Remove oil drips daily</li>
+                            <li>Clean lifting pads</li>
+                            <li>Sweep underneath</li>
+                            <li>Check fluid levels weekly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🔌</div>
+                    <div class="tool-name">3. Diagnostic Equipment</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Cables not damaged</li>
+                            <li>Screen clear and working</li>
+                            <li>Software up to date</li>
+                            <li>Battery charged</li>
+                            <li>Connectors clean</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Wipe screen with soft cloth</li>
+                            <li>Clean connectors carefully</li>
+                            <li>Remove dust from vents</li>
+                            <li>Store in protective case</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <div class="tool-name">4. Power Tools</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Power cable not frayed</li>
+                            <li>Guards fitted and secure</li>
+                            <li>Trigger/switch works safely</li>
+                            <li>Air hose no leaks (if pneumatic)</li>
+                            <li>PAT tested (electrical)</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Blow out dust with air line</li>
+                            <li>Wipe casing clean</li>
+                            <li>Lubricate moving parts</li>
+                            <li>Coil cables properly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📏</div>
+                    <div class="tool-name">5. Measuring Tools</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Scales clearly legible</li>
+                            <li>Zero reading accurate</li>
+                            <li>No bent or damaged parts</li>
+                            <li>Sliding parts move smoothly</li>
+                            <li>Battery working (digital)</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Wipe with soft cloth</li>
+                            <li>Remove any metal filings</li>
+                            <li>Light oil on sliding parts</li>
+                            <li>Store in protective case</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🪛</div>
+                    <div class="tool-name">6. Torque Wrench</div>
+                    <div class="tool-checks">
+                        <strong>Checks:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Calibration date current</li>
+                            <li>Click mechanism works</li>
+                            <li>Scale readable</li>
+                            <li>Adjustment smooth</li>
+                            <li>No physical damage</li>
+                        </ul>
+                        <strong>Cleaning:</strong>
+                        <ul style="margin: 10px 0 0 20px; font-size: 0.85rem;">
+                            <li>Wipe clean after each use</li>
+                            <li>Store at lowest setting</li>
+                            <li>Keep in protective case</li>
+                            <li>Never use to break nuts loose</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Consequences of Poor Tool Maintenance:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Damaged tools can slip and cause injury</li>
+                    <li>Inaccurate measuring tools lead to incorrect repairs</li>
+                    <li>Faulty equipment can damage vehicles</li>
+                    <li>Unsafe power tools can cause electric shocks or fires</li>
+                    <li>Uncalibrated torque wrenches cause fastener failure</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Topic 2: Daily Cleaning Routines -->
+        <section id="daily" class="section">
+            <h2>📅 Topic 2: Daily Workshop Cleaning Activities</h2>
+            
+            <div class="key-point">
+                <strong>🎯 Key Understanding:</strong> Consistent daily cleaning prevents the build-up of dirt, waste, and hazards. A clean start and finish to each day maintains safety standards and work efficiency.
+            </div>
+
+            <h3>Start of Day Activities</h3>
+
+            <div class="diagram-container">
+                <div class="diagram-title">☀️ Morning Checklist</div>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span><strong>Inspect Workshop:</strong> Walk through and identify any hazards or spills from previous day</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Check Lighting:</strong> Ensure all lights working, replace any blown bulbs</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Clear Walkways:</strong> Remove any obstacles, tools, or equipment blocking access</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Empty Bins:</strong> Check waste bins aren't overflowing, empty if necessary</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Check Fire Exits:</strong> Ensure all fire exits clear and accessible</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Sweep Main Areas:</strong> Quick sweep of high-traffic areas</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Tool Check:</strong> Verify tools are in correct locations and ready for use</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Ventilation:</strong> Turn on extraction fans and ensure airflow</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>End of Day Activities</h3>
+
+            <div class="diagram-container">
+                <div class="diagram-title">🌙 Evening Checklist</div>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span><strong>Return Tools:</strong> Put all tools back in correct storage locations</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Clean Work Benches:</strong> Wipe down benches, remove parts and debris</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Sweep Floors:</strong> Thorough sweep of entire workshop floor</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Clean Spillages:</strong> Mop up any oil, coolant, or fluid spills</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Dispose Waste:</strong> Empty waste bins into correct recycling/disposal containers</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Store Parts:</strong> Put unused parts back in parts department or secure storage</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Coil Hoses/Cables:</strong> Tidy air lines, electric cables, avoid trip hazards</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Secure Equipment:</strong> Lower ramps, turn off equipment, lock tool cabinets</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Turn Off Lights:</strong> Switch off all unnecessary lighting and equipment</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span><strong>Lock Up:</strong> Secure windows, doors, and set alarm if applicable</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Identifying Poor Housekeeping</h3>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Poor Housekeeping Example</th>
+                        <th>Risk Created</th>
+                        <th>How to Deal With It</th>
+                    </tr>
+                    <tr>
+                        <td>Tools left on floor</td>
+                        <td>Trip hazard, damaged tools</td>
+                        <td>Return immediately to tool storage, assign tool ownership</td>
+                    </tr>
+                    <tr>
+                        <td>Oil spill not cleaned</td>
+                        <td>Slip hazard, fire risk</td>
+                        <td>Use absorbent granules, sweep up, mop with degreaser</td>
+                    </tr>
+                    <tr>
+                        <td>Parts blocking fire exit</td>
+                        <td>Escape route blocked</td>
+                        <td>Move immediately to designated storage area</td>
+                    </tr>
+                    <tr>
+                        <td>Waste bin overflowing</td>
+                        <td>Fire risk, poor hygiene</td>
+                        <td>Empty into wheelie bin, establish regular emptying schedule</td>
+                    </tr>
+                    <tr>
+                        <td>Air lines across walkway</td>
+                        <td>Trip hazard</td>
+                        <td>Install overhead hose reels or route along walls</td>
+                    </tr>
+                    <tr>
+                        <td>Greasy work bench</td>
+                        <td>Health hazard, tool damage</td>
+                        <td>Clean with degreaser daily, use bench paper</td>
+                    </tr>
+                    <tr>
+                        <td>Mixed waste in bins</td>
+                        <td>Cannot recycle, environmental harm</td>
+                        <td>Provide clearly labelled bins for each waste type</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Floor Cleaning Methods</h3>
+
+            <div class="key-point">
+                <strong>Different Spillages Require Different Methods:</strong>
+            </div>
+
+            <h4>Oil and Fuel Spillages</h4>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span><strong>Step 1:</strong> Sprinkle absorbent granules (sawdust, cat litter, or specialist absorbent)</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Step 2:</strong> Allow to soak in for 10-15 minutes</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Step 3:</strong> Sweep up saturated granules into waste oil container</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Step 4:</strong> Clean remaining residue with degreaser or detergent</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Step 5:</strong> Mop with clean water and allow to dry</span>
+                </div>
+            </div>
+
+            <h4>Coolant and Water-Based Fluids</h4>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span><strong>Method:</strong> Mop up immediately with absorbent cloth or mop</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Cleaning:</strong> Use floor cleaner and warm water</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Drying:</strong> Dry with clean mop or allow to air dry with "Wet Floor" sign displayed</span>
+                </div>
+            </div>
+
+            <h4>General Workshop Floor</h4>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span><strong>Daily:</strong> Sweep with broom to remove dirt, dust, and metal filings</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Weekly:</strong> Wet mop with industrial floor cleaner</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>As Needed:</strong> Use floor scrubber machine for deep cleaning</span>
+                </div>
+                <div class="checklist-item">
+                    <span><strong>Drains:</strong> Clear drain grids regularly to prevent blockages</span>
+                </div>
+            </div>
+
+            <div class="danger-box">
+                <strong>🚨 Never:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Hose oil spills down drains - it's illegal and harms the environment</li>
+                    <li>Leave wet floors without warning signs</li>
+                    <li>Mix chemicals when cleaning - can create toxic fumes</li>
+                    <li>Use water on electrical equipment or near electrical outlets</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Topic 3: Waste and Recycling -->
+        <section id="waste" class="section">
+            <h2>♻️ Topic 3: Waste and Recycling Policies</h2>
+            
+            <div class="key-point">
+                <strong>🎯 Key Understanding:</strong> Proper waste segregation and recycling reduces environmental impact, complies with law, saves disposal costs, and allows materials to be reused.
+            </div>
+
+            <h3>Waste Segregation System</h3>
+
+            <div class="waste-grid">
+                <div class="waste-bin metal">
+                    <div class="bin-icon">🔩</div>
+                    <div>METAL</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px;">Steel, aluminium, copper</div>
+                </div>
+
+                <div class="waste-bin cardboard">
+                    <div class="bin-icon">📦</div>
+                    <div>CARDBOARD</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px;">Boxes, packaging</div>
+                </div>
+
+                <div class="waste-bin oil">
+                    <div class="bin-icon">🛢️</div>
+                    <div>OILS</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px;">Engine oil, filters</div>
+                </div>
+
+                <div class="waste-bin plastic">
+                    <div class="bin-icon">🔵</div>
+                    <div>PLASTIC</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px;">Bottles, containers</div>
+                </div>
+
+                <div class="waste-bin general">
+                    <div class="bin-icon">🗑️</div>
+                    <div>GENERAL</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px;">Non-recyclable waste</div>
+                </div>
+            </div>
+
+            <h3>Metal Waste</h3>
+            <div class="key-point">
+                <strong>What Goes Here:</strong> Steel components, aluminium parts, copper wire, brake discs/drums, exhaust systems, metal offcuts
+                
+                <p style="margin-top: 10px;"><strong>Policy:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Collect in designated metal skip or bin</li>
+                    <li>Separate ferrous (magnetic) from non-ferrous metals if required</li>
+                    <li>Remove any attached rubber, plastic, or oil before disposal</li>
+                    <li>Collected by licensed scrap metal merchant</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Your Responsibilities:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Place metal waste in correct bin - don't mix with general waste</li>
+                    <li>Drain oil from components before placing in metal bin</li>
+                    <li>Stack neatly to maximise bin space</li>
+                    <li>Report when metal bin is full</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Environmental Benefit:</strong> Recycling metal saves energy and raw materials. For example, recycling aluminium uses 95% less energy than producing new aluminium.</p>
+            </div>
+
+            <h3>Cardboard Waste</h3>
+            <div class="key-point">
+                <strong>What Goes Here:</strong> Cardboard boxes, packaging, parts boxes, clean cardboard tubes
+
+                <p style="margin-top: 10px;"><strong>Policy:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Collect in cardboard recycling bin or designated area</li>
+                    <li>Flatten boxes to save space</li>
+                    <li>Remove tape and staples if possible</li>
+                    <li>Keep dry - wet cardboard can't be recycled</li>
+                    <li>Collected by recycling company fortnightly/monthly</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Your Responsibilities:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Break down boxes immediately after unpacking parts</li>
+                    <li>Don't put oily or contaminated cardboard in recycling</li>
+                    <li>Place in correct bin, not mixed with general waste</li>
+                    <li>Report if recycling bin is full</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Environmental Benefit:</strong> Recycling cardboard saves trees and reduces landfill waste. One tonne of recycled cardboard saves 17 trees.</p>
+            </div>
+
+            <h3>Oils Waste</h3>
+            <div class="key-point">
+                <strong>What Goes Here:</strong> Engine oil, gear oil, brake fluid, power steering fluid, oil filters
+
+                <p style="margin-top: 10px;"><strong>Policy:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Collect in dedicated waste oil storage tank (usually bunded)</li>
+                    <li>Oil filters drain for 12 hours then stored in separate container</li>
+                    <li>Oil-soaked absorbent materials in contaminated waste bin</li>
+                    <li>NEVER mix with coolant, solvents, or water</li>
+                    <li>Collected by licensed waste carrier with Waste Transfer Notes</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Your Responsibilities:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Drain oil carefully into collection pan</li>
+                    <li>Transfer to waste oil tank using funnel to prevent spills</li>
+                    <li>Puncture and drain oil filters before storage</li>
+                    <li>Wear gloves - used oil is carcinogenic</li>
+                    <li>Report any leaks from waste oil tank immediately</li>
+                    <li>Keep spill kit nearby when handling waste oil</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Legal Requirement:</strong> Used oil is classified as hazardous waste. Improper disposal can result in fines up to £50,000 and imprisonment.</p>
+                
+                <p style="margin-top: 10px;"><strong>Environmental Impact:</strong> Just 1 litre of oil can contaminate 1 million litres of water. Proper disposal is critical.</p>
+            </div>
+
+            <h3>Plastic Waste</h3>
+            <div class="key-point">
+                <strong>What Goes Here:</strong> Plastic bottles, oil containers, screen wash bottles, plastic packaging, bubble wrap
+
+                <p style="margin-top: 10px;"><strong>Policy:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Collect in plastic recycling bin</li>
+                    <li>Rinse containers to remove residue if possible</li>
+                    <li>Remove lids (different plastic type)</li>
+                    <li>Crush bottles to save space</li>
+                    <li>Collected by recycling company</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Your Responsibilities:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Don't put oily plastic in recycling - goes in general waste</li>
+                    <li>Separate clean plastic from contaminated plastic</li>
+                    <li>Place in correct recycling bin</li>
+                    <li>Empty containers before disposal</li>
+                </ul>
+
+                <p style="margin-top: 10px;"><strong>Environmental Benefit:</strong> Plastic takes 450+ years to decompose. Recycling reduces ocean pollution and landfill.</p>
+            </div>
+
+            <h3>Three Essential Housekeeping Rules</h3>
+
+            <div class="diagram-container">
+                <div class="diagram-title">📜 Workshop Housekeeping Rules</div>
+                <div class="danger-box">
+                    <strong>RULE 1: Clean As You Go</strong>
+                    <p style="margin-top: 10px;">Don't leave cleaning until the end of the day. Wipe up spills immediately, return tools after use, and dispose of waste as it's created. This prevents accidents and keeps work flowing smoothly.</p>
+                </div>
+
+                <div class="warning-box">
+                    <strong>RULE 2: Everything Has a Place</strong>
+                    <p style="margin-top: 10px;">Every tool, part, and piece of equipment must have a designated storage location. Use shadow boards, tool chests, and labelled storage. "A place for everything and everything in its place."</p>
+                </div>
+
+                <div class="tip-box">
+                    <strong>RULE 3: Report Hazards Immediately</strong>
+                    <p style="margin-top: 10px;">If you see a hazard you can't fix yourself (leak, broken equipment, blocked fire exit), report it to your supervisor straight away. Don't assume someone else will deal with it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HEALTH AND SAFETY SECTION -->
+        <section id="health-safety" class="section">
+            <h2>⚕️ Health and Safety Section</h2>
+            
+            <div class="key-point">
+                <strong>🎯 What is Health and Safety?</strong>
+                <p style="margin-top: 10px;">Health and Safety at Work is about preventing accidents, injuries, and ill-health in the workplace. Everyone - employers AND employees - has legal duties under the Health and Safety at Work Act 1974.</p>
+            </div>
+
+            <h3>The Health & Safety at Work Act 1974</h3>
+
+            <div class="diagram-container">
+                <div class="diagram-title">⚖️ Key Legal Duties</div>
+                
+                <h4 style="color: var(--primary-color); margin: 15px 0;">Employer's Duties:</h4>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span>Ensure health, safety, and welfare of all employees</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Provide safe equipment and safe systems of work</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Provide information, instruction, training, and supervision</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Maintain workplace in safe condition</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Provide adequate welfare facilities</span>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--primary-color); margin: 15px 0;">Employee's Duties:</h4>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span>Take reasonable care for your own health and safety</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Take care not to endanger others by your actions</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Co-operate with your employer on health and safety matters</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Not interfere with or misuse safety equipment</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span>Report hazards, near-misses, and accidents</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Three Main Health and Safety Issues</h3>
+
+            <div class="key-point">
+                <strong>1. Slips, Trips, and Falls</strong>
+                <p style="margin-top: 10px;"><strong>The Problem:</strong> Most common cause of workplace injury. Oil spills, trailing cables, items left on floor, uneven surfaces.</p>
+                <p style="margin-top: 10px;"><strong>Prevention:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Clean spills immediately</li>
+                    <li>Use cable management/overhead hose reels</li>
+                    <li>Keep walkways clear</li>
+                    <li>Wear appropriate footwear</li>
+                    <li>Use warning signs for wet floors</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>2. Manual Handling Injuries</strong>
+                <p style="margin-top: 10px;"><strong>The Problem:</strong> Back injuries, muscle strains, trapped fingers from lifting heavy parts, batteries, wheels, etc.</p>
+                <p style="margin-top: 10px;"><strong>Prevention:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Use lifting equipment (engine crane, trolley jacks)</li>
+                    <li>Get help with heavy items - don't lift alone</li>
+                    <li>Bend knees, keep back straight when lifting</li>
+                    <li>Assess weight before attempting to lift</li>
+                    <li>Attend manual handling training</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>3. Hazardous Substances</strong>
+                <p style="margin-top: 10px;"><strong>The Problem:</strong> Skin damage, breathing problems, poisoning from brake cleaner, petrol, battery acid, coolant, solvents.</p>
+                <p style="margin-top: 10px;"><strong>Prevention:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Read COSHH data sheets</li>
+                    <li>Wear appropriate PPE (gloves, goggles, respirator)</li>
+                    <li>Use in ventilated areas</li>
+                    <li>Store chemicals safely in correct containers</li>
+                    <li>Never eat or drink near chemicals</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Topic: Hazards and Risks -->
+        <section id="hazards" class="section">
+            <h2>⚠️ Hazards, Risks, and Cautions</h2>
+            
+            <div class="key-point">
+                <strong>Understanding the Difference:</strong>
+                <p style="margin-top: 10px;"><strong>Hazard:</strong> Something with potential to cause harm (e.g., electricity, moving vehicles, sharp tools)</p>
+                <p><strong>Risk:</strong> The likelihood of that harm occurring and how severe it would be</p>
+            </div>
+
+            <h3>Three Main Potential Hazards</h3>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Hazard</th>
+                        <th>Risk</th>
+                        <th>Control Measures</th>
+                    </tr>
+                    <tr>
+                        <td><strong>1. Moving Vehicles</strong></td>
+                        <td>Being hit by moving vehicle, crushed between vehicles, run over</td>
+                        <td>• Designated parking areas<br>• Use banksman for reversing<br>• High-vis clothing<br>• Beware of blind spots<br>• Never stand behind reversing vehicles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Electricity</strong></td>
+                        <td>Electric shock, burns, fire from faulty equipment or improper use</td>
+                        <td>• PAT test all equipment<br>• Visual inspection before use<br>• Don't use damaged cables<br>• Keep away from water<br>• Use RCD protection<br>• Turn off at source when not in use</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Falling Objects</strong></td>
+                        <td>Head injury, crush injuries from falling parts, tools, or vehicles falling from ramps</td>
+                        <td>• Use axle stands - never trust jack alone<br>• Check ramp safety locks engaged<br>• Wear hard hat in some areas<br>• Secure items at height<br>• Don't stack items too high<br>• Be aware of overhead work</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Three Examples Where Caution Required</h3>
+
+            <div class="danger-box">
+                <strong>1. Working on Hybrid/Electric Vehicles</strong>
+                <p style="margin-top: 10px;"><strong>Danger:</strong> High voltage (up to 600V) can cause fatal electric shock</p>
+                <p style="margin-top: 10px;"><strong>Cautions:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Only qualified technicians can work on high-voltage systems</li>
+                    <li>Identify vehicle type before starting work</li>
+                    <li>Look for high-voltage warning labels (orange cables)</li>
+                    <li>Isolate high-voltage battery before any work</li>
+                    <li>Use insulated tools rated for high voltage</li>
+                    <li>Wear appropriate PPE including insulated gloves</li>
+                </ul>
+            </div>
+
+            <div class="danger-box">
+                <strong>2. Working with Airbags</strong>
+                <p style="margin-top: 10px;"><strong>Danger:</strong> Accidental deployment can cause serious injury or death</p>
+                <p style="margin-top: 10px;"><strong>Cautions:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Disconnect battery and wait 10 minutes before working on airbags</li>
+                    <li>Never probe airbag with test equipment</li>
+                    <li>Never attempt to repair airbag - replace only</li>
+                    <li>Point airbag away from you when handling</li>
+                    <li>Store in secure place face-up</li>
+                    <li>Follow manufacturer procedures exactly</li>
+                </ul>
+            </div>
+
+            <div class="danger-box">
+                <strong>3. Brake System Repairs</strong>
+                <p style="margin-top: 10px;"><strong>Danger:</strong> Brake failure can cause fatal accidents</p>
+                <p style="margin-top: 10px;"><strong>Cautions:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Use correct brake fluid - never mix types</li>
+                    <li>Bleed brakes properly to remove all air</li>
+                    <li>Torque wheel nuts to correct specification</li>
+                    <li>Test brakes thoroughly before releasing vehicle</li>
+                    <li>Check brake fluid reservoir before test drive</li>
+                    <li>Document all work in case of future investigation</li>
+                </ul>
+            </div>
+
+            <h3>Who to Report Hazards To</h3>
+
+            <div class="diagram-container">
+                <div class="diagram-title">📢 Reporting Chain</div>
+                <div style="text-align: left; padding: 20px;">
+                    <div style="background: var(--primary-color); color: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <strong>IMMEDIATE DANGER (Life-threatening)</strong>
+                        <p style="margin-top: 10px;">▶️ Stop work immediately<br>▶️ Warn others<br>▶️ Call emergency services if needed (999)<br>▶️ Then inform supervisor/manager</p>
+                    </div>
+
+                    <div style="background: var(--warning-border); color: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <strong>SERIOUS HAZARD (Could cause injury)</strong>
+                        <p style="margin-top: 10px;">▶️ Report to your immediate supervisor<br>▶️ They will assess and take action<br>▶️ Record in hazard/near-miss book</p>
+                    </div>
+
+                    <div style="background: var(--accent-color); color: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <strong>MINOR ISSUE (Potential hazard)</strong>
+                        <p style="margin-top: 10px;">▶️ Report to supervisor or workshop foreman<br>▶️ They may delegate fixing to appropriate person<br>▶️ Record in maintenance log</p>
+                    </div>
+
+                    <p style="margin-top: 20px; font-weight: 600;">Remember: If in doubt, report it! Better to report something minor than miss a serious hazard.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic: Fire Safety -->
+        <section id="fire" class="section">
+            <h2>🔥 Fire Safety and Extinguishers</h2>
+            
+            <div class="key-point">
+                <strong>🎯 Fire Triangle:</strong> Fire needs three elements - Heat, Fuel, and Oxygen. Remove any one of these and the fire goes out. Different extinguishers work by removing different elements.
+            </div>
+
+            <h3>Classes of Fire Extinguishers</h3>
+
+            <div class="fire-ext-grid">
+                <div class="fire-ext-box water">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔴</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 5px;"><strong>WATER</strong></div>
+                    <div class="ext-label">Red Label</div>
+                    <hr style="margin: 10px 0; border-color: #e53e3e;">
+                    <div style="text-align: left; font-size: 0.85rem;">
+                        <strong>For:</strong> Class A fires<br>
+                        (Wood, paper, textiles)<br><br>
+                        <strong>Works by:</strong> Cooling<br><br>
+                        <strong>DO NOT use on:</strong><br>
+                        • Electrical fires<br>
+                        • Oil/fuel fires
+                    </div>
+                </div>
+
+                <div class="fire-ext-box foam">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🟡</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 5px;"><strong>FOAM</strong></div>
+                    <div class="ext-label">Cream Label</div>
+                    <hr style="margin: 10px 0; border-color: #f6ad55;">
+                    <div style="text-align: left; font-size: 0.85rem;">
+                        <strong>For:</strong> Class A & B<br>
+                        (Solids and liquids)<br><br>
+                        <strong>Works by:</strong> Cooling and smothering<br><br>
+                        <strong>DO NOT use on:</strong><br>
+                        • Electrical fires<br>
+                        • Deep fat fires
+                    </div>
+                </div>
+
+                <div class="fire-ext-box powder">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔵</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 5px;"><strong>POWDER</strong></div>
+                    <div class="ext-label">Blue Label</div>
+                    <hr style="margin: 10px 0; border-color: #4299e1;">
+                    <div style="text-align: left; font-size: 0.85rem;">
+                        <strong>For:</strong> Class A, B, C<br>
+                        (Multi-purpose)<br><br>
+                        <strong>Works by:</strong> Smothering<br><br>
+                        <strong>Good for:</strong><br>
+                        • Vehicle fires<br>
+                        • Fuel fires
+                    </div>
+                </div>
+
+                <div class="fire-ext-box co2">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">⚫</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 5px;"><strong>CO₂</strong></div>
+                    <div class="ext-label">Black Label</div>
+                    <hr style="margin: 10px 0; border-color: #2d3748;">
+                    <div style="text-align: left; font-size: 0.85rem;">
+                        <strong>For:</strong> Class B & electrical<br>
+                        (Liquids and electrical)<br><br>
+                        <strong>Works by:</strong> Displacing oxygen<br><br>
+                        <strong>Warning:</strong><br>
+                        • Very cold - don't touch<br>
+                        • Leaves no residue
+                    </div>
+                </div>
+
+                <div class="fire-ext-box wet-chem">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🟡</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 5px;"><strong>WET CHEMICAL</strong></div>
+                    <div class="ext-label">Yellow Label</div>
+                    <hr style="margin: 10px 0; border-color: #ffc107;">
+                    <div style="text-align: left; font-size: 0.85rem;">
+                        <strong>For:</strong> Class F<br>
+                        (Cooking oil/fat)<br><br>
+                        <strong>Works by:</strong> Cooling and creating barrier<br><br>
+                        <strong>Location:</strong><br>
+                        • Kitchen/staff room<br>
+                        • Not usually in workshop
+                    </div>
+                </div>
+            </div>
+
+            <h3>Fire Classes Explained</h3>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Class</th>
+                        <th>Type of Fire</th>
+                        <th>Examples in Workshop</th>
+                        <th>Best Extinguisher</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Class A</strong></td>
+                        <td>Solid combustibles</td>
+                        <td>Wood, paper, cardboard, fabrics, tyres</td>
+                        <td>Water, Foam, Powder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class B</strong></td>
+                        <td>Flammable liquids</td>
+                        <td>Petrol, diesel, oil, paint, solvents</td>
+                        <td>Foam, Powder, CO₂</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class C</strong></td>
+                        <td>Flammable gases</td>
+                        <td>LPG, acetylene, propane</td>
+                        <td>Powder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class D</strong></td>
+                        <td>Flammable metals</td>
+                        <td>Magnesium (rare in general workshop)</td>
+                        <td>Specialist powder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Electrical</strong></td>
+                        <td>Electrical equipment</td>
+                        <td>Computers, diagnostic tools, power tools</td>
+                        <td>CO₂, Powder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class F</strong></td>
+                        <td>Cooking oils/fats</td>
+                        <td>Kitchen fires (staff room)</td>
+                        <td>Wet Chemical</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Fire Safety Actions</h3>
+
+            <div class="danger-box">
+                <strong>🚨 If You Discover a Fire:</strong>
+                <ol style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>RAISE THE ALARM</strong> - Sound fire alarm or shout "FIRE!"</li>
+                    <li><strong>CALL 999</strong> - Don't assume someone else has done it</li>
+                    <li><strong>EVACUATE</strong> - Leave building by nearest safe exit</li>
+                    <li><strong>ASSEMBLE</strong> - Go to designated assembly point</li>
+                    <li><strong>STAY OUT</strong> - Never re-enter until fire service say it's safe</li>
+                </ol>
+                <p style="margin-top: 15px; font-weight: 600;">Only attempt to fight fire if:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>It's small and contained</li>
+                    <li>You've been trained</li>
+                    <li>You have the right extinguisher</li>
+                    <li>You have a safe escape route</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Topic: PPE and Warning Labels -->
+        <section id="ppe" class="section">
+            <h2>🦺 Personal Protective Equipment (PPE)</h2>
+            
+            <div class="key-point">
+                <strong>🎯 What is PPE?</strong>
+                <p style="margin-top: 10px;">Personal Protective Equipment is worn to reduce exposure to hazards that could cause injury or illness. PPE should be the last line of defence - always try to eliminate hazards first.</p>
+            </div>
+
+            <h3>Main PPE Used Regularly</h3>
+
+            <div class="ppe-grid">
+                <div class="ppe-item">
+                    <div class="ppe-icon">👷</div>
+                    <div class="ppe-name">Safety Boots</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect feet from falling objects, crushing, sharp objects, oil spills
+                    </div>
+                </div>
+
+                <div class="ppe-item">
+                    <div class="ppe-icon">🧤</div>
+                    <div class="ppe-name">Gloves</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect hands from cuts, chemicals, hot surfaces, sharp edges
+                    </div>
+                </div>
+
+                <div class="ppe-item">
+                    <div class="ppe-icon">👁️</div>
+                    <div class="ppe-name">Safety Glasses</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect eyes from flying debris, sparks, chemicals, splashes
+                    </div>
+                </div>
+
+                <div class="ppe-item">
+                    <div class="ppe-icon">👂</div>
+                    <div class="ppe-name">Ear Defenders</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect hearing from loud noise (impact guns, air tools)
+                    </div>
+                </div>
+
+                <div class="ppe-item">
+                    <div class="ppe-icon">👕</div>
+                    <div class="ppe-name">Overalls/Coveralls</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect skin and clothes from dirt, oil, chemicals, heat
+                    </div>
+                </div>
+
+                <div class="ppe-item">
+                    <div class="ppe-icon">😷</div>
+                    <div class="ppe-name">Respirator/Mask</div>
+                    <div style="font-size: 0.85rem; margin-top: 5px;">
+                        <strong>Purpose:</strong> Protect lungs from dust, fumes, vapours, spray paint
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ PPE Responsibilities:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>Employer Must:</strong> Provide appropriate PPE free of charge, ensure it fits, provide training on use, maintain and replace PPE</li>
+                    <li><strong>Employee Must:</strong> Wear PPE when required, look after it, report defects, attend training</li>
+                    <li><strong>Remember:</strong> PPE only works if you wear it correctly!</li>
+                </ul>
+            </div>
+
+            <h3>Product Warning Labels</h3>
+
+            <div class="key-point">
+                <strong>🎯 Hazard Symbols:</strong> These orange/red diamond symbols appear on chemical containers to warn of dangers. You MUST read and understand these before using any product.
+            </div>
+
+            <div class="hazard-grid">
+                <div class="hazard-symbol">
+                    <div class="hazard-icon">☠️</div>
+                    <div class="hazard-name">TOXIC</div>
+                    <div class="hazard-desc">
+                        <strong>Meaning:</strong> Can cause serious damage to health or death if swallowed, breathed in, or absorbed through skin<br><br>
+                        <strong>Examples:</strong> Some brake cleaners, certain solvents, methanol<br><br>
+                        <strong>Precautions:</strong>
+                        • Avoid contact with skin<br>
+                        • Don't breathe vapours<br>
+                        • Use in ventilated area<br>
+                        • Wear gloves and mask<br>
+                        • Keep locked away
+                    </div>
+                </div>
+
+                <div class="hazard-symbol">
+                    <div class="hazard-icon">⚠️</div>
+                    <div class="hazard-name">HARMFUL/IRRITANT</div>
+                    <div class="hazard-desc">
+                        <strong>Meaning:</strong> Can cause irritation to skin, eyes, or respiratory system. May be harmful if swallowed<br><br>
+                        <strong>Examples:</strong> Some degreasers, detergents, screen wash<br><br>
+                        <strong>Precautions:</strong>
+                        • Wear gloves<br>
+                        • Avoid eye contact<br>
+                        • Use in ventilated area<br>
+                        • Wash hands after use<br>
+                        • Don't eat/drink near it
+                    </div>
+                </div>
+
+                <div class="hazard-symbol">
+                    <div class="hazard-icon">🔥</div>
+                    <div class="hazard-name">FLAMMABLE</div>
+                    <div class="hazard-desc">
+                        <strong>Meaning:</strong> Catches fire easily. Can ignite with spark, flame, or heat<br><br>
+                        <strong>Examples:</strong> Petrol, brake cleaner, aerosols, paint thinners, WD-40<br><br>
+                        <strong>Precautions:</strong>
+                        • Keep away from heat/flames<br>
+                        • No smoking nearby<br>
+                        • Store in metal cabinet<br>
+                        • Ensure good ventilation<br>
+                        • Have fire extinguisher ready
+                    </div>
+                </div>
+
+                <div class="hazard-symbol">
+                    <div class="hazard-icon">🧪</div>
+                    <div class="hazard-name">CORROSIVE</div>
+                    <div class="hazard-desc">
+                        <strong>Meaning:</strong> Burns and destroys skin, eyes, metals. Can cause permanent damage<br><br>
+                        <strong>Examples:</strong> Battery acid, some rust removers, drain cleaners<br><br>
+                        <strong>Precautions:</strong>
+                        • Wear acid-resistant gloves<br>
+                        • Wear goggles/face shield<br>
+                        • Use plastic containers<br>
+                        • Have water nearby to rinse<br>
+                        • Never add water to acid
+                    </div>
+                </div>
+            </div>
+
+            <div class="danger-box">
+                <strong>🚨 If Exposed to Hazardous Substance:</strong>
+                <ol style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>REMOVE</strong> from source of exposure</li>
+                    <li><strong>RINSE</strong> affected area with water (at least 15 minutes for eyes)</li>
+                    <li><strong>REMOVE</strong> contaminated clothing</li>
+                    <li><strong>SEEK MEDICAL HELP</strong> - call 999 if serious</li>
+                    <li><strong>SHOW</strong> container/label to medical staff</li>
+                    <li><strong>REPORT</strong> to supervisor - fill in accident book</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+            <h2 style="color: white; border-bottom-color: white;">📝 Assessment Preparation Summary</h2>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                <h3 style="color: white; margin-bottom: 15px;">Housekeeping Section:</h3>
+                <ul style="margin-left: 20px; color: white;">
+                    <li>Six tools/equipment with checks and cleaning methods</li>
+                    <li>Daily start and end of day activities</li>
+                    <li>Identifying poor housekeeping and solutions</li>
+                    <li>Waste policies for metal, cardboard, oils, plastics</li>
+                    <li>Floor cleaning methods including spillages</li>
+                    <li>Three essential housekeeping rules</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                <h3 style="color: white; margin-bottom: 15px;">Health & Safety Section:</h3>
+                <ul style="margin-left: 20px; color: white;">
+                    <li>Three main health and safety issues</li>
+                    <li>Three potential hazards in workshop</li>
+                    <li>Three examples where caution required</li>
+                    <li>Fire extinguisher classes and uses</li>
+                    <li>Who to report hazards to</li>
+                    <li>Main PPE and their purposes</li>
+                    <li>Four hazard warning labels explained</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+                <h3 style="color: white; margin-bottom: 15px;">✨ Stay Safe - Good Luck! ✨</h3>
+                <p style="font-size: 1.1rem; color: white;">Health and Safety isn't just for exams - it's for life. The knowledge in this guide will keep you and your colleagues safe throughout your career!</p>
+            </div>
+        </section>
+
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️</button>
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Theme Management
+        function setTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast', 'theme-dyslexia', 'theme-blue', 'theme-green');
+            if (themeName !== 'light') {
+                document.body.classList.add(`theme-${themeName}`);
+            }
+            localStorage.setItem('preferredTheme', themeName);
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.theme === themeName) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            setTheme(savedTheme);
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
+                });
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Show/hide buttons
+        const backToTop = document.querySelector('.back-to-top');
+        const printBtn = document.querySelector('.print-btn');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+                printBtn.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+                printBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
